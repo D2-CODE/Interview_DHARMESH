@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Update Form</title>
+</head>
+
+<body>
+
+    <% if (locals.Users) { %>
+        <form action="/userUpdate" method="post">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="name" value="<%= Users.name%>"></td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td><input type="text" name="mobile" value="<%= Users.mobile%>"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><input type="text" name="city" value="<%= Users.city%>"></td>
+                </tr>
+                <tr>
+                    <td>MediaUrl</td>
+                    <td><input type="text" name="mediaurl" value="<%= Users.mediaurl%>"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Update</button>
+                        <input type="hidden" name="id" value="<%= Users._id%>">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <% } else { %>
+            <h3 style="color: red;">
+                Not Users Found
+            </h3>
+            <% }%>
+
+
+</body>
+
+</html>

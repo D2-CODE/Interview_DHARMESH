@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+</head>
+
+<body>
+
+    <h1>user list</h1>
+
+    <% if (locals.Users) { %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Sr.no</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>City</th>
+                    <th>MediaUrl</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Users.forEach((user,index)=> { %>
+                    <tr>
+                        <td>
+                            <%= ++index %>
+                        </td>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.mobile %>
+                        </td>
+                        <td>
+                            <%= user.city %>
+                        </td>
+                        <td>
+                            <%= user.mediaurl %>
+                        </td>
+                        <td>
+                            <a href="http://localhost:3001/user/<%= user._id%>" target="_blank">Edit</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+        <% } else { %>
+            <h3 style="color: red;">
+                Not Users Found
+            </h3>
+            <%}%>
+
+</body>
+
+</html>
